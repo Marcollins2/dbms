@@ -1,0 +1,54 @@
+/* Center-align the content */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for centering and width control */
+.container {
+    text-align: center;
+    width: 90%; /* Adjust the width as needed */
+    max-width: 800px; /* Set a maximum width */
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Style the header */
+h1 {
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Style the table */
+table {
+    width: 100%; /* Table width set to 100% to auto-fit */
+    border-collapse: collapse;
+    background-color: #fff; /* Bright background color */
+    border-radius: 8px; /* Add rounded corners to the table */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    margin-top: 20px;
+}
+
+/* Style table headers */
+th {
+    padding: 10px;
+    text-align: left;
+    background-color: #0099cc; /* Bright blue color for headers */
+    color: #fff; /* White text on blue background */
+}
+
+/* Style table cells */
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #e6f7ff; /* Light blue on hover */
+}

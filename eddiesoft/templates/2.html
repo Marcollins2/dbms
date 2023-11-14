@@ -1,0 +1,66 @@
+<!-- rental_info.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Information</title>
+    {% load static %}
+    <style>
+      
+   
+        body {
+            background-image: url('{% static "images/img3.jpg" %}');
+            background-size: cover;
+            font-size: 28px; 
+           
+        }
+      
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rental Information</h1>
+    <nav>
+        {% if show_home_link %}
+            <a href="{% url 'home' %}" style="color: black; text-decoration: none; font-size: 24px;">
+                <img src="{% static 'icons/icon.png' %}" alt="Home Icon">
+            </a>
+        {% endif %}
+        <!-- Add other navigation links here -->
+    </nav>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Customer Last Name</th>
+                <th>Customer First Name</th>
+                <th>Rented Video Name</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result.0 }}</td>
+                    <td>{{ result.1 }}</td>
+                    <td>{{ result.2 }}</td>
+                    <td>{{ result.3 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

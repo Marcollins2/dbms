@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Rental</title>
+    {% load static %}
+    <style>
+        body {
+            background-image: url('{% static "images/img3.jpg" %}');
+            background-size: cover; 
+            font-size: 28px;
+           
+        }
+        </style>
+</head>
+<body>
+    <h1>Add Rental</h1>
+    <nav>
+        {% if show_home_link %}
+            <a href="{% url 'home' %}" style="color: black; text-decoration: none; font-size: 24px;">
+                <img src="{% static 'icons/icon.png' %}" alt="Home Icon">
+            </a>
+        {% endif %}
+        <!-- Add other navigation links here -->
+    </nav>
+    <form method="post" action="{% url 'rental_list' %}">
+        {% csrf_token %}
+        <label for="{{ form.MemberNumber.id_for_label }}">Member Number:</label>
+        {{ form.MemberNumber }}
+        <br>
+        <label for="{{ form.VideoNumber.id_for_label }}">Video Number:</label>
+        {{ form.VideoNumber }}
+        <br>
+        <label for="{{ form.Rented_out_date.id_for_label }}">Rented Out Date:</label>
+        {{ form.Rented_out_date }}
+        <br>
+        <label for="{{ form.Returning_date.id_for_label }}">Returning Date:</label>
+        {{ form.returning_date }}
+        <br>
+        <button type="submit">Add Rental</button>
+    </form>
+
+    <p><a href="{% url 'rental_list' %}" style="text-decoration: none; color: inherit;">View Rental List</a></p>
+</body>
+</html>

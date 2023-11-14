@@ -1,0 +1,42 @@
+/* Apply styles to the body element */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Style the main heading */
+h1 {
+    color: #333; /* Heading text color */
+}
+
+/* Style the sections for Add Data and Options */
+div {
+    display: inline-block;
+    vertical-align: top;
+    background-color: skyblue; /* Background color for sections */
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #333; /* Border around sections */
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px #888; /* Box shadow for sections */
+}
+
+/* Style the Add Data and Options lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style the links in the lists */
+li a {
+    color: black; /* Link text color */
+    text-decoration: none;
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 18px; /* Link text size */
+}
+
+/* Change link color on hover */
+li a:hover {
+    color: #ff5733; /* Hovered link text color */
+}

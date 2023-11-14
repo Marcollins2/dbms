@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Branch List</title>
+
+    {% load static %}
+    <style>
+      
+   
+        body {
+            background-image: url('{% static "images/img3.jpg" %}');
+            background-size: cover;
+            font-size: 28px; 
+           
+        }
+      
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Branch List</h1>
+    <nav>
+        {% if show_home_link %}
+            <a href="{% url 'home' %}" style="color: black; text-decoration: none; font-size: 24px;">
+                <img src="{% static 'icons/icon.png' %}" alt="Home Icon">
+            </a>
+        {% endif %}
+        <!-- Add other navigation links here -->
+    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>Branch Number</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Sub-county</th>
+                <th>District</th>
+                <th>Telephone No.</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for branch in branches %}
+                <tr>
+                    <td>{{ branch.BranchNumber }}</td>
+                    <td>{{ branch.Street }}</td>
+                    <td>{{ branch.City }}</td>
+                    <td>{{ branch.Sub_county }}</td>
+                    <td>{{ branch.District }}</td>
+                    <td>{{ branch.TelephoneNumber }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
