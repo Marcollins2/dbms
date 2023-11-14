@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Staff</title>
+    {% load static %}
+    <style>
+        body {
+            background-image: url('{% static "images/img3.jpg" %}');
+            background-size: cover;
+            font-size: 28px; 
+           
+        }
+        </style>
+
+</head>
+<body>
+    <h1>Add Staff</h1>
+    <nav>
+        {% if show_home_link %}
+            <a href="{% url 'home' %}" style="color: black; text-decoration: none; font-size: 24px;">
+                <img src="{% static 'icons/icon.png' %}" alt="Home Icon">
+            </a>
+        {% endif %}
+        <!-- Add other navigation links here -->
+    </nav>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"  style="font-size: 28px;">Add Staff</button>
+    </form>
+
+<p><a href="{% url 'staff_list' %}" style="text-decoration: none; color: inherit;">View Staff List</a></p>
+</body>
+</html>

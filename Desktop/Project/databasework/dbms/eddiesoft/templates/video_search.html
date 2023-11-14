@@ -1,0 +1,69 @@
+<!-- video_search.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Search</title>
+    {% load static %}
+    <style>
+      
+   
+        body {
+            background-image: url('{% static "images/img3.jpg" %}');
+            background-size: cover;
+            font-size: 28px; 
+           
+        }
+      
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Search</h1>
+    <nav>
+        {% if show_home_link %}
+            <a href="{% url 'home' %}" style="color: black; text-decoration: none; font-size: 24px;">
+                <img src="{% static 'icons/icon.png' %}" alt="Home Icon">
+            </a>
+        {% endif %}
+        <!-- Add other navigation links here -->
+    </nav>
+
+    <!-- Search Form -->
+    <form method="post" action="{% url 'video_search' %}" id="videoSearchForm">
+        {% csrf_token %}
+        <label for="category">Select Category:</label>
+        <select name="category" id="category" onchange="submitForm()" style="width: 200px; height: 40px">
+            <option value="" selected disabled style="font-size: 16px;">Select a category</option>
+            {% for category in categories %}
+                <option value="{{ category }}" style="font-size: 28px;">{{ category }}</option>
+            {% endfor %}
+        </select>
+        <!-- No need for a search button -->
+    </form>
+
+    <!-- Display Search Results -->
+    <ul>
+        {% for video in videos %}
+            <li>{{ video.Title }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- JavaScript to submit the form when category is selected -->
+    <script>
+        function submitForm() {
+            document.getElementById("videoSearchForm").submit();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    <style>
+        body {
+            background-image: url('{% static "images/img8.jpg" %}');
+            background-size: cover; 
+            font-size: 28px; 
+        }
+
+        /* Style for the menu items */
+        .menu-item {
+            color: black;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Style for the Sales Report submenu */
+        .submenu {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Eddie Soft Video Rental</h1>
+
+    <div style="display: flex; justify-content: space-between; width: 80%; margin: 0 auto;">
+        <!-- Left Side: Add Staff, Add Branch, Add Member, Add Video, Add Rental -->
+        <div style="width: 45%;">
+            
+            <a href="{% url 'video_search' %}" style="text-decoration: none; color: inherit;">Video Search</a>
+
+
+            <h2>Add Data</h2>
+            <ul>
+                <a href="{% url 'Add_staff' %}" class="menu-item">Add Staff</a>
+                <a href="{% url 'Add_Branch' %}" class="menu-item">Add Branch</a>
+                <a href="{% url 'Add_Member' %}" class="menu-item">Add Member</a>
+                <a href="{% url 'Add_Video' %}" class="menu-item">Add Video</a>
+                
+                <class="submenu">
+                    <h3>Sales</h3>
+                    <ul>
+                        <a href="{% url 'rental_list' %}" class="menu-item">View Rented Videos</a>
+                        <a href="{% url 'sales_report' %}" class="menu-item">Get all your sales</a>
+                    </ul>
+                
+            </ul>
+        </div>
+
+        <!-- Right Side: Options 2 to 13 -->
+        <div style="width: 45%; font-size: 28px;">
+            <h2>Assignment Queries</h2>
+            <form action="{% url 'handle_option_selection' %}" method="GET">
+                <select name="Queries" size="20" style="width: 300px;" onchange="this.form.submit()">
+                    <optgroup label="Select Query">
+                   
+                </optgroup>
+                <optgroup>
+                    <option value="{% url '2' %}" class="menu-item">QUERY 2</option>
+                    <option value="{% url '3' %}" class="menu-item">QUERY 3</option>
+                    <option value="{% url 'movies' %}" class="menu-item">QUERY 4</option>
+                    <option value="{% url 'overdue_videos' %}" class="menu-item">QUERY 5</option>
+                    <option value="{% url 'movies_ending_with_s' %}" class="menu-item">QUERY 6</option>
+                    <option value="{% url 'genre_average_rental_fee' %}" class="menu-item">QUERY 7</option>
+                    <option value="{% url 'members_with_rentals' %}" class="menu-item">QUERY 8</option>
+                    <option value="{% url 'videos_higher_than_all_drama' %}" class="menu-item">QUERY 9</option>
+                    <option value="{% url 'movies_in_genres' %}" class="menu-item">QUERY 10</option>
+                    <option value="{% url 'movies_without_video' %}" class="menu-item">QUERY 13</option>
+
+                </optgroup>
+                </select>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

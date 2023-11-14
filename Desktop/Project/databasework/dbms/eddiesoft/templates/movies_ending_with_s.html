@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies Ending with S</title>
+    {% load static %}
+    <style>
+      
+   
+        body {
+            background-image: url('{% static "images/img3.jpg" %}');
+            background-size: cover;
+            font-size: 28px; 
+           
+        }
+      
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movies Ending with S</h1>
+    <nav>
+        {% if show_home_link %}
+            <a href="{% url 'home' %}" style="color: black; text-decoration: none; font-size: 24px;">
+                <img src="{% static 'icons/icon.png' %}" alt="Home Icon">
+            </a>
+        {% endif %}
+        <!-- Add other navigation links here -->
+    </nav>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Video Number</th>
+                <th>Cost</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+                <tr>
+                    
+                    <td>{{ movie.0 }}</td>
+                    <td>{{ movie.1 }}</td>
+                    <td>{{ movie.2 }}</td>
+                    <td>{{ movie.3 }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
